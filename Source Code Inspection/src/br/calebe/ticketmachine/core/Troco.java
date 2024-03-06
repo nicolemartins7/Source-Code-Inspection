@@ -1,3 +1,5 @@
+// Nicole Martins dos Santos - 100365577
+
 package br.calebe.ticketmachine.core;
 
 import java.util.Iterator;
@@ -37,12 +39,12 @@ class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
         while (valor % 5 != 0) {
             count++;
         }
-        papeisMoeda[1] = new PapelMoeda(5, count);
+        papeisMoeda[1] = new PapelMoeda(5, count); 
         count = 0;
         while (valor % 2 != 0) {
             count++;
         }
-        papeisMoeda[1] = new PapelMoeda(2, count);
+        papeisMoeda[1] = new PapelMoeda(2, count); // está sendo usado o índice 1 duas vezes, deveria ser papeisMoeda[0] para representar o valor 2.
     }
 
     public Iterator<PapelMoeda> getIterator() {
@@ -59,7 +61,7 @@ class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
 
         @Override
         public boolean hasNext() {
-            for (int i = 6; i >= 0; i++) {  // Loop configurado para um loop infinito devido a i++.
+            for (int i = 6; i >= 0; i++) {  // Loop configurado para um loop infinito devido a i++
                 if (troco.papeisMoeda[i] != null) {
                     return true;
                 }
@@ -68,7 +70,7 @@ class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
         }
 
         @Override
-        public PapelMoeda next() {
+        public PapelMoeda next() { // Loop configurado para um loop infinito devido a i++
             PapelMoeda ret = null;
             for (int i = 6; i >= 0 && ret != null; i++) {
                 if (troco.papeisMoeda[i] != null) {
@@ -81,7 +83,7 @@ class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
 
         @Override
         public void remove() {
-            next(); // Chamar o método next no método remove
+            next(); // O método remove chama o método next, mas não verifica se há um próximo elemento. Isso pode levar a uma exceção NoSuchElementException.
         }
     }
 }
