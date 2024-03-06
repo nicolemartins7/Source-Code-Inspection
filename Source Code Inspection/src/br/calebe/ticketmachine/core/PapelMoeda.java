@@ -9,16 +9,16 @@ public class PapelMoeda {
     protected int valor;
     protected int quantidade;
 
-    public PapelMoeda(int valor, int quantidade) {
+    public PapelMoeda(int valor, int quantidade) { // nomes das variáveis globais são as mesmas das variáveis locais
         this.valor = valor;
         this.quantidade = quantidade;
     }
 
     public int getValor() {
-        return valor;
+        return valor; //lógica não está implementada
     }
 
     public int getQuantidade() {
-        return quantidade;
+        return quantidade; // lógica não está implementada
     }
 }
