@@ -6,17 +6,18 @@ import java.util.Iterator;
  *
  * @author Calebe de Paula Bianchini
  */
-class Troco {
+class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
 
     protected PapelMoeda[] papeisMoeda;
 
     public Troco(int valor) {
         papeisMoeda = new PapelMoeda[6];
         int count = 0;
-        while (valor % 100 != 0) {
+        while (valor % 100 != 0) { // O loop while está em um loop infinito.
             count++;
         }
-        papeisMoeda[5] = new PapelMoeda(100, count);
+        papeisMoeda[5] = new PapelMoeda(100, count); // Índices usados como 1, deve ser 0 para representar o valor 2.
+
         count = 0;
         while (valor % 50 != 0) {
             count++;
@@ -58,7 +59,7 @@ class Troco {
 
         @Override
         public boolean hasNext() {
-            for (int i = 6; i >= 0; i++) {
+            for (int i = 6; i >= 0; i++) {  // Loop configurado para um loop infinito devido a i++.
                 if (troco.papeisMoeda[i] != null) {
                     return true;
                 }
@@ -80,7 +81,7 @@ class Troco {
 
         @Override
         public void remove() {
-            next();
+            next(); // Chamar o método next no método remove
         }
     }
 }
