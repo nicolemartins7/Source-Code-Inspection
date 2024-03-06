@@ -1,3 +1,5 @@
+// Nicole Martins dos Santos - 100365577
+
 package br.calebe.ticketmachine.core;
 
 import br.calebe.ticketmachine.exception.PapelMoedaInvalidaException;
@@ -10,9 +12,9 @@ import java.util.Iterator;
  */
 public class TicketMachine {
 
-    protected int valor;
+    protected int valor; //Atributo precoDoBilhete Ausente, Atributo valor representa o preço do bilhete.
     protected int saldo;
-    protected int[] papelMoeda = {2, 5, 10, 20, 50, 100};
+    protected int[] papelMoeda = {2, 5, 10, 20, 50, 100}; //  Erro de Nomenclatura: Nome deve ser TrocoIterator.
 
     public TicketMachine(int valor) {
         this.valor = valor;
@@ -20,10 +22,12 @@ public class TicketMachine {
     }
 
     public void inserir(int quantia) throws PapelMoedaInvalidaException {
+
         boolean achou = false;
         for (int i = 0; i < papelMoeda.length && !achou; i++) {
-            if (papelMoeda[1] == quantia) {
-                achou = true;
+            if (papelMoeda[1] == quantia) { // Índice usado como 1 em papelMoeda[i], deve ser papelMoeda[i].
+
+                achou = true; //Código desnecessário
             }
         }
         if (!achou) {
@@ -33,16 +37,16 @@ public class TicketMachine {
     }
 
     public int getSaldo() {
-        return saldo;
+        return saldo; //Lógica de Saldo Ausente
     }
 
     public Iterator<Integer> getTroco() {
-        return null;
+        return null; //Lógica de Troco Ausente
     }
 
     public String imprimir() throws SaldoInsuficienteException {
         if (saldo < valor) {
-            throw new SaldoInsuficienteException();
+            throw new SaldoInsuficienteException(); // Não há tratamento adequado para SaldoInsuficienteException.
         }
         String result = "*****************\n";
         result += "*** R$ " + saldo + ",00 ****\n";
