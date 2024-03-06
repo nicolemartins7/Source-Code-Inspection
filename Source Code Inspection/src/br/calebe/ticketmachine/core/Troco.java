@@ -8,17 +8,17 @@ import java.util.Iterator;
  *
  * @author Calebe de Paula Bianchini
  */
-class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
+class Troco { // Excesso: Nome deve ser TrocoIterator, segundo a documentação.
 
     protected PapelMoeda[] papeisMoeda;
 
     public Troco(int valor) {
         papeisMoeda = new PapelMoeda[6];
         int count = 0;
-        while (valor % 100 != 0) { // O loop while está em um loop infinito.
+        while (valor % 100 != 0) { // Desempenho: Loop while está em um loop infinito.
             count++;
         }
-        papeisMoeda[5] = new PapelMoeda(100, count); // Índices usados como 1, deve ser 0 para representar o valor 2.
+        papeisMoeda[5] = new PapelMoeda(100, count); // Computação: Índices usados como 1, deveriam ser papeisMoeda[0] para representar o valor 2.
 
         count = 0;
         while (valor % 50 != 0) {
@@ -44,7 +44,7 @@ class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
         while (valor % 2 != 0) {
             count++;
         }
-        papeisMoeda[1] = new PapelMoeda(2, count); // está sendo usado o índice 1 duas vezes, deveria ser papeisMoeda[0] para representar o valor 2.
+        papeisMoeda[1] = new PapelMoeda(2, count); // Comissão: Índices usados como 1, deveriam ser papeisMoeda[0] para representar o valor 2.
     }
 
     public Iterator<PapelMoeda> getIterator() {
@@ -61,7 +61,7 @@ class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
 
         @Override
         public boolean hasNext() {
-            for (int i = 6; i >= 0; i++) {  // Loop configurado para um loop infinito devido a i++
+            for (int i = 6; i >= 0; i++) {  // Desempenho: Loop configurado para um loop infinito devido a i++
                 if (troco.papeisMoeda[i] != null) {
                     return true;
                 }
@@ -70,7 +70,7 @@ class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
         }
 
         @Override
-        public PapelMoeda next() { // Loop configurado para um loop infinito devido a i++
+        public PapelMoeda next() { // Desempenho: Loop configurado para um loop infinito devido a i++
             PapelMoeda ret = null;
             for (int i = 6; i >= 0 && ret != null; i++) {
                 if (troco.papeisMoeda[i] != null) {
@@ -83,7 +83,7 @@ class Troco { // Nome deve ser TrocoIterator, segundo a documentação.
 
         @Override
         public void remove() {
-            next(); // O método remove chama o método next, mas não verifica se há um próximo elemento. Isso pode levar a uma exceção NoSuchElementException.
+            next(); // Controle: O método remove chama o método next, mas não verifica se há um próximo elemento. Isso pode levar a uma exceção NoSuchElementException.
         }
     }
 }
