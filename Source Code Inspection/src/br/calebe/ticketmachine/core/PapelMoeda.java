@@ -3,23 +3,23 @@ package br.calebe.ticketmachine.core;
 
 /**
  *
- * @author Calebe de Paula Bianchini
+ * author Calebe de Paula Bianchini
  */
 public class PapelMoeda {
 
     protected int valor;
     protected int quantidade;
 
-    public PapelMoeda(int valor, int quantidade) { // nomes das variáveis globais são as mesmas das variáveis locais
+    public PapelMoeda(int valor, int quantidade) { // Computação: Nomes das variáveis locais (no construtor) são iguais aos nomes dos atributos globais.
         this.valor = valor;
         this.quantidade = quantidade;
     }
 
     public int getValor() {
-        return valor; //lógica não está implementada
+        return valor; // Computação: lógica não está implementada
     }
 
     public int getQuantidade() {
-        return quantidade; // lógica não está implementada
+        return quantidade; // Computação: lógica não está implementada
     }
 }
