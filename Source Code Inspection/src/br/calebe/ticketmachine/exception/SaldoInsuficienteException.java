@@ -3,7 +3,11 @@ package br.calebe.ticketmachine.exception;
 
 /**
  *
- * @author Calebe de Paula Bianchini
+ * author Calebe de Paula Bianchini
  */
-public class SaldoInsuficienteException extends Exception { // falta a implementação da lógica
+public class SaldoInsuficienteException extends Exception { // Excesso: falta a implementação da lógica
 }
+
+
+
+
