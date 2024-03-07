@@ -12,9 +12,9 @@ import java.util.Iterator;
  */
 public class TicketMachine {
 
-    protected int valor; //Atributo precoDoBilhete Ausente, Atributo valor representa o preço do bilhete.
+    protected int valor; // Inicialização: Atributo precoDoBilhete Ausente, Atributo valor representa o preço do bilhete.
     protected int saldo;
-    protected int[] papelMoeda = {2, 5, 10, 20, 50, 100}; //  Erro de Nomenclatura: Nome deve ser TrocoIterator.
+    protected int[] papelMoeda = {2, 5, 10, 20, 50, 100}; //  Comissão: Erro de Nomenclatura: Nome deve ser TrocoIterator.
 
     public TicketMachine(int valor) {
         this.valor = valor;
@@ -25,9 +25,9 @@ public class TicketMachine {
 
         boolean achou = false;
         for (int i = 0; i < papelMoeda.length && !achou; i++) {
-            if (papelMoeda[1] == quantia) { // Índice usado como 1 em papelMoeda[i], deve ser papelMoeda[i].
+            if (papelMoeda[1] == quantia) { // Controle: Índice usado como 1 em papelMoeda[i], deve ser papelMoeda[i].
 
-                achou = true; //Código desnecessário
+                achou = true; // Excesso: Código desnecessário
             }
         }
         if (!achou) {
@@ -37,16 +37,16 @@ public class TicketMachine {
     }
 
     public int getSaldo() {
-        return saldo; //Lógica de Saldo Ausente
+        return saldo; // Dados: Lógica de Saldo Ausente
     }
 
     public Iterator<Integer> getTroco() {
-        return null; //Lógica de Troco Ausente
+        return null; // Dados: Lógica de Troco Ausente
     }
 
     public String imprimir() throws SaldoInsuficienteException {
         if (saldo < valor) {
-            throw new SaldoInsuficienteException(); // Não há tratamento adequado para SaldoInsuficienteException.
+            throw new SaldoInsuficienteException(); // Controle: Não há tratamento adequado para SaldoInsuficienteException.
         }
         String result = "*****************\n";
         result += "*** R$ " + saldo + ",00 ****\n";
